@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .hasil-prediksi {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #a4508b;
+            background: linear-gradient(90deg, #f3e6fa 60%, #a4508b22 100%);
+            border-radius: 14px;
+            padding: 18px 0;
+            margin: 24px 0 32px 0;
+            text-align: center;
+            letter-spacing: 1.5px;
+            box-shadow: 0 2px 12px 0 rgba(160,80,139,0.08);
+            transition: background 0.2s;
+        }
+        .result-card h2 {
+            font-size: 1.6rem;
+            color: #a4508b;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .result-card h3 {
+            color: #5f0a87;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .btn-prediksi-ulang {
+            display: inline-block;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #a4508b 0%, #5f0a87 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px 0 rgba(80,0,120,0.10);
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-prediksi-ulang:hover {
+            background: linear-gradient(135deg, #5f0a87 0%, #a4508b 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .result-card {
+            animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(32px);}
+            to { opacity: 1; transform: none;}
+        }
+        @media (max-width: 700px) {
+            .hasil-prediksi { font-size: 1.3rem; padding: 12px 0; }
+            .btn-prediksi-ulang { padding: 10px 18px; font-size: 1rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-card">
+            <h2>
+                <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align:middle; margin-right:8px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="16" fill="url(#iris-gradient)"/>
+                  <path d="M16 8C13 13 13 21 16 24C19 21 19 13 16 8Z" fill="#fff" fill-opacity="0.8"/>
+                  <ellipse cx="16" cy="16" rx="5" ry="8" fill="#a4508b" fill-opacity="0.18"/>
+                  <defs>
+                    <linearGradient id="iris-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#a4508b"/>
+                      <stop offset="1" stop-color="#5f0a87"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                Hasil Prediksi
+            </h2>
+            <h3>Spesies Bunga Iris yang diprediksi:</h3>
+            <p class="hasil-prediksi">{{ hasil }}</p>
+            <div style="text-align:center; margin-top: 18px;">
+                <a href="/" class="btn-prediksi-ulang">Coba Prediksi Lagi</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
